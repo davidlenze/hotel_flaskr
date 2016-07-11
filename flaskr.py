@@ -58,11 +58,11 @@ def add_entry():
     g.db.execute('insert into entries (text) values (?)',
             [ request.form['text']])
     #g.db.execute('insert into entries (room) values (?)',
-            [ request.form['text']])
+            #[ request.form['text']])
     #g.db.execute('insert into entries (customer) values (?)',
-            [ request.form['text']])
+            #[ request.form['text']])
     #g.db.execute('insert into entries (recordno) values (?)',
-            [ request.form['integer']])
+            #[ request.form['integer']])
     g.db.commit()
     flash('New entry was successfully posted')
     return redirect(url_for('show_entries'))
