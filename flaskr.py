@@ -95,7 +95,7 @@ def logout():
 # Anwendung starten
 
 if __name__ == '__main__':
-   if not os.path.isfile('/skole/tjener/home0/lenzeda/Desktop/flakr/flaskr.db'):
+   if not os.path.isfile('/skole/tjener/home0/lenzeda/Desktop/flaskr/flaskr.db'):
        
        init_db()
    app.run()
