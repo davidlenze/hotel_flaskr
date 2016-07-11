@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block body %}
+  {% if session.logged_in %}
+    <form action="{{ url_for('add_entry') }}" method=post class=add-entry>
+    <dl>
+      <dt>Datum:
+      <dd><textarea name=date rows=5 cols=40></textarea>
+      <dt>Zimmernummer:
+      <dd><textarea name=room rows=5 cols=40></textarea>
+      <dt>Kunde:
+      <dd><textarea name=customer rows=5 cols=40></textarea>
+      <dt>Buchungsnummer:
+      <dd><textarea name=recordno rows=5 cols=40></textarea>
+      <dd><input type=submit value=Share>
+    </dl>
+    </form>
+
+  {% endif %}
+<ul class=entries>
+<table border="1" style="width:100%">
+  <tr>
+     <td>Datum</td>
+     <td>Zimmernummer</td>
+     <td>Kunde</td>
+     <td>Buchungsnummer</td>
+     <td>Sonderwünsche</td>
+  </tr>
+  {% for entry in entries %}
+  <tr>
+     <td>{{ entry.id }}</td>
+
+     <td>{{ entry.text|safe }}</td>
+  </tr>
+  {% else %}
+    <li><em>Unbelievable. No entries here so far</em>
+  {% endfor %}
+</ul>
+{% endblock %}
